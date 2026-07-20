@@ -1,0 +1,171 @@
+@font-face {
+    font-family: 'Rock Salt';
+    src: url('RockSalt-Regular.woff2') format('woff2'),
+        url('RockSalt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vidaloka';
+    src: url('Vidaloka-Regular.woff2') format('woff2'),
+        url('Vidaloka-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Reenie Beanie';
+    src: url('ReenieBeanie.woff2') format('woff2'),
+        url('ReenieBeanie.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fascinate';
+    src: url('Fascinate-Regular.woff2') format('woff2'),
+        url('Fascinate-Regular.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single';
+    src: url('BitcountSingle-Regular.woff2') format('woff2'),
+        url('BitcountSingle-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single';
+    src: url('BitcountSingle-Black.woff2') format('woff2'),
+        url('BitcountSingle-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single';
+    src: url('BitcountSingle-Bold.woff2') format('woff2'),
+        url('BitcountSingle-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single Cursive';
+    src: url('BitcountSingleCursive-Black.woff2') format('woff2'),
+        url('BitcountSingleCursive-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single Cursive';
+    src: url('BitcountSingleCursive-Bold.woff2') format('woff2'),
+        url('BitcountSingleCursive-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single Cursive';
+    src: url('BitcountSingleCursive-ExtraBold.woff2') format('woff2'),
+        url('BitcountSingleCursive-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single Cursive';
+    src: url('BitcountSingleCursive-ExtraLight.woff2') format('woff2'),
+        url('BitcountSingleCursive-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single Cursive';
+    src: url('BitcountSingleCursive-Light.woff2') format('woff2'),
+        url('BitcountSingleCursive-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single Cursive';
+    src: url('BitcountSingleCursive-Medium.woff2') format('woff2'),
+        url('BitcountSingleCursive-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single Cursive';
+    src: url('BitcountSingleCursive-Regular.woff2') format('woff2'),
+        url('BitcountSingleCursive-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single Cursive';
+    src: url('BitcountSingleCursive-SemiBold.woff2') format('woff2'),
+        url('BitcountSingleCursive-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single Cursive';
+    src: url('BitcountSingleCursive-Thin.woff2') format('woff2'),
+        url('BitcountSingleCursive-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single';
+    src: url('BitcountSingle-ExtraBold.woff2') format('woff2'),
+        url('BitcountSingle-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single';
+    src: url('BitcountSingle-ExtraLight.woff2') format('woff2'),
+        url('BitcountSingle-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitcount Single';
+    src: url('BitcountSingle-Light.woff2') format('woff2'),
+        url('BitcountSingle-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
