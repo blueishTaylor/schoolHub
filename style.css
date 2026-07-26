@@ -1,8 +1,8 @@
 /* Paleta de colores */
 @font-face {
     font-family: 'Rock Salt';
-    src: url('RockSalt-Regular.woff2') format('woff2'),
-        url('RockSalt-Regular.woff') format('woff');
+    src: url(fonts/RockSalt-Regular.woff) format('woff'),
+        url(fonts/RockSalt-Regular.woff2) format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -10,8 +10,8 @@
 
 @font-face {
     font-family: 'Vidaloka';
-    src: url('Vidaloka-Regular.woff2') format('woff2'),
-        url('Vidaloka-Regular.woff') format('woff');
+    src: url(fonts/Vidaloka-Regular.woff2) format('woff2'),
+        url(fonts/Vidaloka-Regular.woff) format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -19,8 +19,8 @@
 
 @font-face {
     font-family: 'Reenie Beanie';
-    src: url('ReenieBeanie.woff2') format('woff2'),
-        url('ReenieBeanie.woff') format('woff');
+    src: url(fonts/ReenieBeanie.woff2) format('woff2'),
+        url(fonts/ReenieBeanie.woff) format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -28,8 +28,8 @@
 
 @font-face {
     font-family: 'Fascinate';
-    src: url('Fascinate-Regular.woff2') format('woff2'),
-        url('Fascinate-Regular.woff') format('woff');
+    src: url(fonts/Fascinate-Regular.woff2) format('woff2'),
+        url(fonts/Fascinate-Regular.woff) format('woff');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -37,11 +37,25 @@
 
 @font-face {
     font-family: 'Bitcount Single';
-    src: url('BitcountSingle-Regular.woff2') format('woff2'),
-        url('BitcountSingle-Regular.woff') format('woff');
+    src: url(fonts/BitcountSingle-Regular.woff2) format('woff2'),
+        url(fonts/BitcountSingle-Regular.woff) format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+}
+
+header {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+margin-bottom: 20px;
+}
+
+header h1 {
+    font-family:'Reenie Beanie', sans-serif;
+    color: var(--pale-blue);
+    font-size: 100px;
 }
 
 :root {
@@ -88,8 +102,9 @@ body {
 
 .sidebar nav ul li a {
     color: white;
+    font-family:'Bitcount Single';
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.5em;
     padding: 10px;
     display: block;
     border-radius: 5px;
@@ -103,10 +118,6 @@ body {
 .content {
     flex: 1;
     padding: 40px;
-}
-
-header h1 {
-    color: var(--pale-blue);
 }
 
 #main-view {
