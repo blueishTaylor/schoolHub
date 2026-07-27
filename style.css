@@ -44,20 +44,6 @@
     font-display: swap;
 }
 
-header {
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100%;
-margin-bottom: 20px;
-}
-
-header h1 {
-    font-family:'Reenie Beanie', sans-serif;
-    color: var(--pale-blue);
-    font-size: 100px;
-}
-
 :root {
     --navy: #091540;
     --light-blue: #7692FF;
@@ -72,6 +58,52 @@ body {
     background-color: var(--navy);
     color: white;
 }
+
+header {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+margin-bottom: 20px;
+}
+
+header h1 {
+    font-family:'Reenie Beanie', sans-serif;
+    color: var(--pale-blue);
+    font-size: 100px;
+}
+
+.home-intro {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: var(--pale-blue);
+
+}
+
+.home-intro p {
+margin-bottom: 15px;
+font-family: 'Vidaloka';
+font-size: 25px;
+}
+
+.section-intro {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: var(--pale-blue);
+}
+.section-intro h2 {
+    font-family: 'Rock Salt';
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.section-intro p {
+    font-family: 'Vidaloka';
+    font-size: 1.5rem;
+}
+
 
 .container {
     display: flex;
