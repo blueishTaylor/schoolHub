@@ -1,4 +1,41 @@
 
+// Array donde viviran los equipos
+const teams = [];
+
+// Constructor: define la "forma" de un equipo
+function Team(teamName, productName, productType, photoUrl, description) {
+    this.id = crypto.randomUUID();
+    this.teamName = teamName;
+    this.productName = productName;
+    this.productType = productType;
+    this.photoUrl = photoUrl;
+    this.description = description;
+    this.comments = [];
+}
+
+// Función que crea y guarda un equipo
+function addTeam(teamName, productName, productType, photoUrl, description) {
+    const team = new Team(teamName, productName, productType, photoUrl, description);
+    teams.push(team);
+}
+
+// Datos de prueba
+addTeam(
+    "Equipo Cóndor",
+    "Explorando Torres del Paine",
+    "video",
+    "https://via.placeholder.com/150",
+    "Contamos nuestra experiencia visitando este parque nacional en la Patagonia."
+);
+
+addTeam(
+    "Equipo Rapa Nui",
+    "Un viaje a Isla de Pascua",
+    "video",
+    "https://via.placeholder.com/150",
+    "Compartimos si recomendaríamos este destino y qué se puede hacer allí."
+);
+
 document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
 });
@@ -61,6 +98,7 @@ function showSection(section) {
                 <p class="placeholder-text">Student videos will appear here soon.</p>
             </div>
         `;
+        displayTeams();
     } else {
         title.innerText = 'Bienvenidos al Blog';
         view.innerHTML = '<p>Selecciona una sección del menú para visualizar los trabajos.</p>';
