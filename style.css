@@ -45,18 +45,44 @@
 }
 
 :root {
-    --navy: #091540;
-    --light-blue: #7692FF;
-    --pale-blue: #ABD2FA;
-    --slate: #3D518C;
-    --royal-blue: #1B2CC1;
+    --primary: #FF6B6B;      
+    --secondary: #4ECDC4;    
+    --accent: #FFE66D;           
+    --dark: #292F36;         
+    --light: #F7FFF7;        
 }
 
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--navy);
-    color: white;
+    background-color: var(--dark);   
+    color: var(--light);              
+}
+
+header h1 {
+    font-family:'Reenie Beanie', sans-serif;
+    color: var(--accent);            
+    font-size: 100px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--secondary);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: var(--primary);   
+}
+
+#main-view {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--secondary); 
+    margin: 40px;
 }
 
 header {
@@ -65,18 +91,13 @@ justify-content: center;
 align-items: center;
 width: 100%;
 margin-bottom: 20px;
-}
-
-header h1 {
-    font-family:'Reenie Beanie', sans-serif;
-    color: var(--pale-blue);
-    font-size: 100px;
+background-color: var(--dark);
 }
 
 .home-intro {
     line-height: 1.6;
     font-size: 1.1rem;
-    color: var(--pale-blue);
+    color: var(--light);
 
 }
 
@@ -90,13 +111,13 @@ font-size: 25px;
     margin-bottom: 30px;
     line-height: 1.6;
     font-size: 1.1rem;
-    color: var(--pale-blue);
+    color: #172554;
 }
 .section-intro h2 {
     font-family: 'Rock Salt';
     font-size: 2rem;
     margin-bottom: 15px;
-    color: white;
+    color:#172554;
 }
 
 .section-intro p {
@@ -110,16 +131,8 @@ font-size: 25px;
     min-height: 100vh;
 }
 
-.sidebar {
-    width: 250px;
-    background-color: var(--slate);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
 .sidebar h2 {
-    color: var(--pale-blue);
+    color: var(--accent);
     margin-bottom: 30px;
 }
 
@@ -143,18 +156,13 @@ font-size: 25px;
     transition: background 0.3s;
 }
 
-.sidebar nav ul li a:hover {
-    background-color: var(--royal-blue);
-}
-
 .content {
     flex: 1;
-    padding: 40px;
+    padding: 0;
 }
 
-#main-view {
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid var(--slate);
+.site-header{
+    background-color: var(--dark);
+    padding: 25px 40px;
+    box-shadow: 0 4px 10px rgb(0, 0, 0, 0.2 );
 }

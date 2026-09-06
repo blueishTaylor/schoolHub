@@ -30,13 +30,31 @@ function showSection(section) {
             </div>
         `;
     }else if(section === 'videos') {
-        title.innerText = 'Airport Videos - 8th grade';
+        title.innerText = 'Tour Guide Videos - 8th grade';
         view.innerHTML = `
             <div class="section-intro">
-                <h2>Airport Adventures & Travel Stories ✈️🧳</h2>
-                <p>Welcome to the 8th-grade video section! Working in teams, our students recorded their journey, the airport facilities, and their own travel experiences.</p>
-                <p>Watch how they bring their adventures to life by combining original footage of the airport with creative voice-overs, sharing their personal stories—all spoken entirely in English!</p>
-                <p>Explore their video projects below, enjoy their work, and leave your feedback in the comments!</p>
+
+                <h2>Tour Guide Videos: Discover Chile 🇨🇱🗺️</h2>
+
+                <p>
+                  Welcome to the 8th-grade Tour Guide Video section!
+                Working in teams, our students chose a place in Chile
+                and created a video to introduce it to visitors.
+                </p>
+
+                <p>
+                 In their videos, students share essential information
+                about their chosen destination, explain what visitors
+                can see and do there, and share their own experiences
+                when they have visited the place.
+               </p>
+                
+               <p>
+                They also share their opinions about the destination
+                and explain whether they would recommend visiting it.
+                Explore their videos, discover new places in Chile,
+                and leave your feedback in the comments!
+                </p>
             </div>
             <div class="products-container">
                 <!-- Aquí se cargarán dinámicamente las tarjetas de los videos más adelante -->
@@ -47,4 +65,38 @@ function showSection(section) {
         title.innerText = 'Bienvenidos al Blog';
         view.innerHTML = '<p>Selecciona una sección del menú para visualizar los trabajos.</p>';
     }
+}
+
+function displayTeams(){
+    const container = document.querySelector(".products-container");
+    if (!container) return;
+
+    container.innerHTML="";
+    
+    teams.forEach((team)=> {
+        const card = document.createElement("div");
+        card.classList.add("team-card");
+        card.dataset.id=team.id;
+
+        card.innerHTML = `
+        <img src= "${team.photoUrl}" alt = "Foto de ${team.teamName}" class="team-photo">
+        <div class="team-info">
+            <h3>${team.teamName}</h3>
+            <p class="product-name">${team.productName}</p>
+            <p class= "team-description">${team.description}</p>
+        </div>
+        `;
+
+        const commentBtn = document.createElement("button");
+        commentBtn.classList.add("comment-btn");
+        commentBtn.textContent="💬 Comment";
+
+        commentBtn.addEventListener("click", ()=> {
+
+
+            alert(`Sistema de comentarios para "${team.productName}" proximamente`);
+        });
+        card.appendChild(commentBtn);
+        container.appendChild(card);
+    });
 }
