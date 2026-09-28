@@ -4,11 +4,53 @@ const SUPABASE_KEY= "sb_publishable_GprnG-cyVpyKmmAfXsnfNw_iXL3BRiD";
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 
+const accessForm = document.getElementById("access-form");
+const accessError = document.getElementById("access-error");
+const accessDialog = document.getElementById("access-dialog");
 
 const nameRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(\s[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
-const teams = [];
 
-// Constructor: define la "forma" de un equipo
+
+accessForm.addEventListener("submit", async(event)=> {
+    event.preventDefault();
+
+    const firstName = document.getElementById("access-first-name").value.trim();
+    const lastName = document.getElementById("access-last-name").value.trim();
+    const studentClass = document.getElementById("access-class").value.trim();
+
+    if(!nameRegex.test(firstName)|| !nameRegex.test(lastName)){
+        accessError.textContent="El nombre y apellido puede contener solo letras.";
+        accessError.style.display = "block";
+        return;
+    }
+
+    accessError.style.display="none";
+
+    const{data, error} = await supabaseClient
+    .from("students")
+    .select("*")
+    .eq("first_name", firstName)
+    .eq("last_name", lastName)
+    .eq("class", studentClass);
+
+    if(error){
+        accessError.textContent = "Hubo un error al conectar. Intenta de nuevo";
+        accessError.style.display = "block";
+        return;
+    }
+
+    if(data.length === 0){
+        accessError.textContent = "No encontramos esos datos.Revisa tu nombre, apellido y curso.";
+        accessError.style.display = "block";
+        return;
+    }
+
+    console.log("¡Estudiante válido!", data[0]);
+    accessDialog.close();
+
+})
+
+const teams = [];
 function Team(teamName, productName, productType, photoUrl, description) {
     this.id = crypto.randomUUID();
     this.teamName = teamName;
