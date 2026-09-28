@@ -29,7 +29,35 @@
                 <!-- Aquí se cargarán dinámicamente los trabajos -->
             </section>
         </main>
+        <dialog id="access-dialog">
+            <form id="access-form">
+                <h2>👋 Welcome!</h2>
+                <p>Para comentar, ingresa tus datos:</p>
+                
+                <label>
+                    Name
+                    <input type="text" id="access-first-name" required>
+                </label>
+
+                <label>
+                    Last Name
+                    <input type="text" id="access-last-name" required>
+                </label>
+
+                <label>
+                    Class
+                    <input type="text" id="access-class" placeholder="Ex: 5°A" required>
+                </label>
+
+                <p id="access-error" style="color: red; display: none;"></p>
+
+                <button type="submit">Enter</button>
+            </form>
+
+        </dialog>
+        
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="app.js"></script>
 </body>
 </html>

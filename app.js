@@ -1,5 +1,11 @@
 
-// Array donde viviran los equipos
+const SUPABASE_URL = "https://nyyyjcdcolvnamubjiwc.supabase.co/";
+const SUPABASE_KEY= "sb_publishable_GprnG-cyVpyKmmAfXsnfNw_iXL3BRiD";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+
+
+const nameRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(\s[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
 const teams = [];
 
 // Constructor: define la "forma" de un equipo
@@ -138,3 +144,14 @@ function displayTeams(){
         container.appendChild(card);
     });
 }
+
+async function probarConexion() {
+    const { data, error } = await supabaseClient
+        .from("students")
+        .select("*");
+
+    console.log("Datos:", data);
+    console.log("Error:", error);
+}
+
+probarConexion();
