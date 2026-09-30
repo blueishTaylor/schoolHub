@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
 });
 
-function showSection(section) {
+async function showSection(section) {
     const title = document.getElementById('section-title');
     const view = document.getElementById('main-view');
     
@@ -126,14 +126,15 @@ function showSection(section) {
                 <p class="placeholder-text">Student videos will appear here soon.</p>
             </div>
         `;
-        displayTeams();
+
+        await displayTeams();
     } else {
         title.innerText = 'Bienvenidos al Blog';
         view.innerHTML = '<p>Selecciona una sección del menú para visualizar los trabajos.</p>';
     }
 }
 function abrirFormularioComentario(team){
-    console.log(`Listo para comentar en: ${team.productName}, como ${currentStudent.first_name}`)
+    console.log(`Listo para comentar en: ${team.product_name}, como ${currentStudent.first_name}`)
 }
 
 
@@ -148,7 +149,7 @@ const {data, error} = await supabaseClient
 .eq("product_type", "video");
 
 if(error){
-    console.log("Error cargando productos": error);
+    console.log("Error cargando productos", error);
     return;
 }
 
