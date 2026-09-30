@@ -7,6 +7,8 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const accessForm = document.getElementById("access-form");
 const accessError = document.getElementById("access-error");
 const accessDialog = document.getElementById("access-dialog");
+let  currentStudent = null;
+let pendingTeam = null;
 
 const nameRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(\s[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
 
@@ -33,6 +35,14 @@ accessForm.addEventListener("submit", async(event)=> {
     .eq("last_name", lastName)
     .eq("class", studentClass);
 
+    currentStudent = data[0];
+    console.log("¡Estudiante válido!", data[0]);
+    accessDialog.close();
+    
+    if(pendingTeam){
+    abrirFormularioComentario(pendingTeam);
+    pendingTeam = null;
+    }
     if(error){
         accessError.textContent = "Hubo un error al conectar. Intenta de nuevo";
         accessError.style.display = "block";
@@ -45,8 +55,8 @@ accessForm.addEventListener("submit", async(event)=> {
         return;
     }
 
-    console.log("¡Estudiante válido!", data[0]);
-    accessDialog.close();
+
+   
 
 })
 
@@ -61,13 +71,13 @@ function Team(teamName, productName, productType, photoUrl, description) {
     this.comments = [];
 }
 
-// Función que crea y guarda un equipo
+
 function addTeam(teamName, productName, productType, photoUrl, description) {
     const team = new Team(teamName, productName, productType, photoUrl, description);
     teams.push(team);
 }
 
-// Datos de prueba
+
 addTeam(
     "Equipo Cóndor",
     "Explorando Torres del Paine",
@@ -152,7 +162,9 @@ function showSection(section) {
         view.innerHTML = '<p>Selecciona una sección del menú para visualizar los trabajos.</p>';
     }
 }
-
+function abrirFormularioComentario(team){
+    console.log(`Listo para comentar en: ${team.productName}, como ${currentStudent.first_name}`)
+}
 function displayTeams(){
     const container = document.querySelector(".products-container");
     if (!container) return;
@@ -178,7 +190,12 @@ function displayTeams(){
         commentBtn.textContent="💬 Comment";
 
         commentBtn.addEventListener("click", ()=> {
-
+            if(currentStudent){
+               abrirFormularioComentario(team);
+            } else{
+                pendingTeam = team;
+                accessDialog.showModal();
+            }
 
             alert(`Sistema de comentarios para "${team.productName}" proximamente`);
         });
