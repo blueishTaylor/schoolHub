@@ -35,14 +35,7 @@ accessForm.addEventListener("submit", async(event)=> {
     .eq("last_name", lastName)
     .eq("class", studentClass);
 
-    currentStudent = data[0];
-    console.log("¡Estudiante válido!", data[0]);
-    accessDialog.close();
-    
-    if(pendingTeam){
-    abrirFormularioComentario(pendingTeam);
-    pendingTeam = null;
-    }
+
     if(error){
         accessError.textContent = "Hubo un error al conectar. Intenta de nuevo";
         accessError.style.display = "block";
@@ -54,45 +47,22 @@ accessForm.addEventListener("submit", async(event)=> {
         accessError.style.display = "block";
         return;
     }
-
+console.log("Esto es 'data' completo:", data);
+console.log("Cuántos elementos tiene:", data.length);
+    
+    currentStudent = data[0];
+    console.log("¡Estudiante válido!", data[0]);
+    accessDialog.close();
+    
+    if(pendingTeam){
+    abrirFormularioComentario(pendingTeam);
+    pendingTeam = null;
+    }
 
    
 
 })
 
-const teams = [];
-function Team(teamName, productName, productType, photoUrl, description) {
-    this.id = crypto.randomUUID();
-    this.teamName = teamName;
-    this.productName = productName;
-    this.productType = productType;
-    this.photoUrl = photoUrl;
-    this.description = description;
-    this.comments = [];
-}
-
-
-function addTeam(teamName, productName, productType, photoUrl, description) {
-    const team = new Team(teamName, productName, productType, photoUrl, description);
-    teams.push(team);
-}
-
-
-addTeam(
-    "Equipo Cóndor",
-    "Explorando Torres del Paine",
-    "video",
-    "https://via.placeholder.com/150",
-    "Contamos nuestra experiencia visitando este parque nacional en la Patagonia."
-);
-
-addTeam(
-    "Equipo Rapa Nui",
-    "Un viaje a Isla de Pascua",
-    "video",
-    "https://via.placeholder.com/150",
-    "Compartimos si recomendaríamos este destino y qué se puede hacer allí."
-);
 
 document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
@@ -165,6 +135,8 @@ function showSection(section) {
 function abrirFormularioComentario(team){
     console.log(`Listo para comentar en: ${team.productName}, como ${currentStudent.first_name}`)
 }
+
+
 function displayTeams(){
     const container = document.querySelector(".products-container");
     if (!container) return;
@@ -196,8 +168,6 @@ function displayTeams(){
                 pendingTeam = team;
                 accessDialog.showModal();
             }
-
-            alert(`Sistema de comentarios para "${team.productName}" proximamente`);
         });
         card.appendChild(commentBtn);
         container.appendChild(card);
