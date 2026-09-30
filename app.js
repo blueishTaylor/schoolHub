@@ -137,23 +137,35 @@ function abrirFormularioComentario(team){
 }
 
 
-function displayTeams(){
+async function displayTeams(){
     const container = document.querySelector(".products-container");
     if (!container) return;
 
+const {data, error} = await supabaseClient
+.from("Productos")
+.select("*")
+.eq("class", "8°A")
+.eq("product_type", "video");
+
+if(error){
+    console.log("Error cargando productos": error);
+    return;
+}
+
+
     container.innerHTML="";
-    
-    teams.forEach((team)=> {
+
+    data.forEach((team)=>{
         const card = document.createElement("div");
         card.classList.add("team-card");
-        card.dataset.id=team.id;
-
-        card.innerHTML = `
-        <img src= "${team.photoUrl}" alt = "Foto de ${team.teamName}" class="team-photo">
+        card.dataset.id= team.id;
+    
+        card.innerHTML= `
+        <img src="https://placehold.co/150" alt="Foto de ${team.team_name}" class="team-photo">
         <div class="team-info">
-            <h3>${team.teamName}</h3>
-            <p class="product-name">${team.productName}</p>
-            <p class= "team-description">${team.description}</p>
+            <h3>${team.team_name}</h3>
+            <p class="product-name">${team.product_name}</p>
+            <p class="team-description">${team.description}</p>
         </div>
         `;
 
@@ -173,6 +185,7 @@ function displayTeams(){
         container.appendChild(card);
     });
 }
+
 
 async function probarConexion() {
     const { data, error } = await supabaseClient
