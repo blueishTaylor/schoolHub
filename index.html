@@ -55,6 +55,22 @@
             </form>
 
         </dialog>
+        <dialog id="comment-dialog">
+            <form id="comment-form">
+                <h2 id="commnent-product-title"></h2>
+                <p id="commnent-as"></p>
+
+                <label>
+                    Your comment here
+                    <textarea id="comment-text" required maxlength="300"></textarea>
+                </label>
+
+                <p id="comment-error" style="color: red; display: none;"></p>
+
+                <button type="submit">Send Comment</button>
+                <button type="button" id="comment-cancel-btn">Cancelar</button>
+            </form>
+        </dialog>
         
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

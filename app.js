@@ -7,6 +7,11 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const accessForm = document.getElementById("access-form");
 const accessError = document.getElementById("access-error");
 const accessDialog = document.getElementById("access-dialog");
+const commentDialog = document.getElementById("comment-dialog");
+const commentForm = document.getElementById("comment-form");
+const commentError = document.getElementById("comment-error");
+const commentCancelBtn = document.getElementById("comment-cancel-btn");
+let currentTeamForComment = null;
 let  currentStudent = null;
 let pendingTeam = null;
 
@@ -134,7 +139,12 @@ async function showSection(section) {
     }
 }
 function abrirFormularioComentario(team){
-    console.log(`Listo para comentar en: ${team.product_name}, como ${currentStudent.first_name}`)
+    currentTeamForComment = team;
+    document.getElementById("comment-product-title").textContent= team.product_name;
+    document.getElementById("comment-as").textContent = `Comentando como ${currentStudent.first_name} - ${currentStudent.class}`;
+    commentError.style.display= "none";
+    commentForm.reset();
+    commentDialog.showModal();
 }
 
 
