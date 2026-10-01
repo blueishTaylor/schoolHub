@@ -1,3 +1,35 @@
+const SUPABASE_URL = "https://nyyyjcdcolvnamubjiwc.supabase.co/";
+const SUPABASE_KEY = "sb_publishable_GprnG-cyVpyKmmAfXsnfNw_iXL3BRiD";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const loginSection = document.getElementById("login-section");
+const panelSection = document.getElementById("panel-section");
+const loginForm = document.getElementById("login-form");
+const loginError = document.getElementById("login-error");
+
+loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("login-email").value.trim();
+    const password = document.getElementById("login-password").value;
+
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: email,
+        password: password
+    });
+
+    if (error) {
+        loginError.textContent = "Correo o contraseña incorrectos.";
+        loginError.style.display = "block";
+        return;
+    }
+
+    loginSection.style.display = "none";
+    panelSection.style.display = "block";
+
+    displayPendingComments();
+});
+
 const pendingCommentsData = [
     {
         id: 1,
@@ -48,5 +80,3 @@ function displayPendingComments() {
         container.appendChild(card);
     });
 }
-
-displayPendingComments();
