@@ -147,7 +147,40 @@ function abrirFormularioComentario(team){
     commentDialog.showModal();
 }
 
+commentCancelBtn.addEventListener("click", ()=> {
+    commentDialog.close();
+});
 
+commentForm.addEventListener("submit", async(event)=>{
+    event.preventDefault();
+    
+    const commentText = document.getElementById("comment-text").value.trim();
+
+    if(commentText.length=== 0){
+        commentError.textContent = "El comentario no puede estar vacio";
+        commentError.style.display = "block";
+        return;
+    }
+
+    const{ error } = await supabaseClient
+    .from("comments")
+    .insert({
+        student_id: currentStudent.id,
+        product_id: currentTeamForComment.id,
+        comment_text:commentText,
+        approved:false
+    });
+
+    if(error){
+        commentError.textContent = "Hubo un error al guardar tu comentario. Intenta de nuevo";
+        commentError.style.display = "block";
+        console.log("Error insertando comentario:", error);
+        return;
+    }
+
+    commentDialog.close();
+    alert("¡Gracias! Tu comentario quedará visible una vez que sea revisado.")
+})
 async function displayTeams(){
     const container = document.querySelector(".products-container");
     if (!container) return;
