@@ -68,15 +68,35 @@ async function displayPendingComments() {
         const approveBtn = document.createElement("button");
         approveBtn.classList.add("approve-btn");
         approveBtn.textContent = "✅ Aprobar";
-        approveBtn.addEventListener("click", () => {
-            console.log(`Aprobar comentario id: ${comment.id}`);
+        approveBtn.addEventListener("click", async () => {
+            const { error } = await supabaseClient
+                .from("comments")
+                .update({ approved: true })
+                .eq("id", comment.id);
+
+            if (error) {
+                console.log("Error aprobando comentario:", error);
+                return;
+            }
+
+            displayPendingComments();
         });
 
         const rejectBtn = document.createElement("button");
         rejectBtn.classList.add("reject-btn");
         rejectBtn.textContent = "❌ Rechazar";
-        rejectBtn.addEventListener("click", () => {
-            console.log(`Rechazar comentario id: ${comment.id}`);
+        rejectBtn.addEventListener("click", async () => {
+            const { error } = await supabaseClient
+                .from("comments")
+                .delete()
+                .eq("id", comment.id);
+
+            if (error) {
+                console.log("Error rechazando comentario:", error);
+                return;
+            }
+
+            displayPendingComments();
         });
 
         card.appendChild(approveBtn);
