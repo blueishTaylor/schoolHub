@@ -59,14 +59,12 @@ accessForm.addEventListener("submit", async(event)=> {
         accessError.style.display = "block";
         return;
     }
-  
-console.log("Esto es 'data' completo:", data);
-console.log("Cuántos elementos tiene:", data.length);
-    
-    currentStudent = data[0];
-    console.log("¡Estudiante válido!", data[0]);
+      
+    currentStudent = estudianteEncontrado;
+    console.log("¡Estudiante válido!", currentStudent);
     accessDialog.close();
     
+
     if(pendingTeam){
     abrirFormularioComentario(pendingTeam);
     pendingTeam = null;
