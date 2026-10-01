@@ -16,6 +16,12 @@ let  currentStudent = null;
 let pendingTeam = null;
 
 const nameRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(\s[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
+function normalizar(texto){
+    return texto
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
 
 
 accessForm.addEventListener("submit", async(event)=> {
@@ -35,10 +41,7 @@ accessForm.addEventListener("submit", async(event)=> {
 
     const{data, error} = await supabaseClient
     .from("students")
-    .select("*")
-    .eq("first_name", firstName)
-    .eq("last_name", lastName)
-    .eq("class", studentClass);
+    .select("*");
 
 
     if(error){
@@ -47,11 +50,16 @@ accessForm.addEventListener("submit", async(event)=> {
         return;
     }
 
-    if(data.length === 0){
+    const estudianteEncontrado = data.find((estudiante)=> 
+    normalizar(estudiante.first_name) === normalizar(firstName) && 
+    normalizar(estudiante.last_name) === normalizar(lastName)
+ );
+    if(!estudianteEncontrado){
         accessError.textContent = "No encontramos esos datos.Revisa tu nombre, apellido y curso.";
         accessError.style.display = "block";
         return;
     }
+  
 console.log("Esto es 'data' completo:", data);
 console.log("Cuántos elementos tiene:", data.length);
     
@@ -63,11 +71,7 @@ console.log("Cuántos elementos tiene:", data.length);
     abrirFormularioComentario(pendingTeam);
     pendingTeam = null;
     }
-
-   
-
 })
-
 
 document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
