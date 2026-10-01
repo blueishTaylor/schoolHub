@@ -8,11 +8,30 @@
 </head>
 <body>
     <div class="admin-container">
-        <h1>🛡️ Panel de Moderación</h1>
-        <p>Comentarios pendientes de revisión</p>
+        <div id="login-section">
+            <h1>🔒 Acceso Admin</h1>
+            <form id="login-form">
+                <label>
+                    Correo
+                    <input type="email" id="login-email" required>
+                </label>
+                <label>
+                    Contraseña
+                    <input type="password" id="login-password" required>
+                </label>
+                <p id="login-error" style="color: red; display: none;"></p>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
 
-        <div id="pending-comments-container"></div>
+        <div id="panel-section" style="display: none;">
+            <h1>🛡️ Panel de Moderación</h1>
+            <p>Comentarios pendientes de revisión</p>
+            <div id="pending-comments-container"></div>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="admin.js"></script>
 </body>
+</html>
