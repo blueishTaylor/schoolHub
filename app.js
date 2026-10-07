@@ -248,19 +248,9 @@ if(error){
         </div>
         `;
 
-        const commentBtn = document.createElement("button");
-        commentBtn.classList.add("comment-btn");
-        commentBtn.textContent="💬 Comment";
-
-        commentBtn.addEventListener("click", ()=> {
-            if(currentStudent){
-               abrirFormularioComentario(team);
-            } else{
-                pendingTeam = team;
-                accessDialog.showModal();
-            }
+        card.addEventListener("click", ()=> {
+            abrirVistaAmpliada(team);
         });
-        card.appendChild(commentBtn);
         container.appendChild(card);
     });
 }
