@@ -271,3 +271,49 @@ header h1 {
     color: white;
     margin-left: 8px;
 }
+
+#expanded-dialog {
+    width: 90vw;
+    max-width: 700px;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+#expanded-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    float: right;
+    cursor: pointer;
+    color: var(--gi-light);
+}
+
+#expanded-title {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    color: var(--gi-orange);
+    clear: both;
+}
+
+#expanded-media {
+    margin: 16px 0;
+}
+
+#expanded-media audio, #expanded-media video {
+    width: 100%;
+}
+
+#expanded-comment-btn {
+    background-color: var(--gi-blue);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#expanded-comment-area {
+    margin-top: 16px;
+}

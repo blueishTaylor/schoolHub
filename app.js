@@ -11,6 +11,11 @@ const commentDialog = document.getElementById("comment-dialog");
 const commentForm = document.getElementById("comment-form");
 const commentError = document.getElementById("comment-error");
 const commentCancelBtn = document.getElementById("comment-cancel-btn");
+const expandedDialog = document.getElementById("expanded-dialog");
+const expandedCloseBtn = document.getElementById("expanded-close-btn");
+const expandedTitle = document.getElementById("expanded-title");
+const expandedMedia = document.getElementById("expanded-media");
+const expandedCommentBtn = document.getElementById("expanded-comment-btn");
 let currentTeamForComment = null;
 let  currentStudent = null;
 let pendingTeam = null;
@@ -183,6 +188,34 @@ commentForm.addEventListener("submit", async(event)=>{
     commentDialog.close();
     alert("¡Gracias! Tu comentario quedará visible una vez que sea revisado.")
 })
+
+expandedCloseBtn.addEventListener("click", ()=> {
+    expandedDialog.close();
+})
+
+function abrirVistaAmpliada(team){
+    expandedTitle.textContent = `${team.team_name} - ${team.product_name}`;
+
+    expandedMedia.innerHTML = "";
+
+    if(!team.file_url){
+        expandedMedia.innerHTML = `<p>Contenido próximamente 🚧</p>`;
+    } else if(team.product_type === "video"){
+        expandedMedia.innerHTML = `<video src="${team.file_url}" controls></video>`;
+    } else if(team.product_type === "podcast"){
+        expandedMedia.innerHTML = `<audio src="${team.file_url}" controls></audio>`;
+    }
+
+    expandedCommentBtn.onclick = () => {
+        if(currentStudent){
+            abrirFormularioComentario(team);
+        } else{
+            pendingTeam = team;
+            accessDialog.showModal();
+        }
+    };
+    expandedDialog.showModal();
+}
 async function displayTeams(){
     const container = document.querySelector(".products-container");
     if (!container) return;
