@@ -1,4 +1,3 @@
-/* Paleta de colores */
 @font-face {
     font-family: 'Rock Salt';
     src: url(fonts/RockSalt-Regular.woff) format('woff'),
@@ -45,103 +44,56 @@
 }
 
 :root {
-    --gi-orange: #FF6B00;      
-    --gi-orange-deep: #E85D04; 
-    --gi-indigo: #1B1F3B;      
-    --gi-blue: #2E3A87;     
-    --gi-light: #FFF4E6;       
-} 
-
-/*
-:root {
-    --gi-orange: #FF6B6B;      
-    --gi-orange-deep: #FFE66D; 
-    --gi-indigo: #292F36;      
-    --gi-blue: #4ECDC4;        
-    --gi-light: #F7FFF7;       
-}*/
+    --gi-orange: #8C4A2F;
+    --gi-orange-deep: #6F3A23;
+    --gi-indigo: #F4F1EB;
+    --gi-blue: #4A6B5C;
+    --gi-light: #3A332B;
+}
 
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--gi-indigo);   
-    color: var(--gi-light);              
+    background-color: var(--gi-indigo);
+    color: var(--gi-light);
+}
+
+header.site-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--gi-indigo);
+    padding: 25px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--gi-blue);
 }
 
 header h1 {
-    font-family:'Reenie Beanie', sans-serif;
-    color: var(--gi-orange);            
-    font-size: 100px;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    color: var(--gi-orange);
+    font-size: 2.2rem;
+    letter-spacing: -0.3px;
 }
-
-.sidebar {
-    width: 250px;
-    background-color: var(--gi-orange-deep);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar nav ul li a:hover {
-    background-color: var(--gi-orange);   
-}
-
-#main-view {
-    background-color: rgba(255, 255, 255, 0.08);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid var(--gi-blue); 
-    margin: 40px;
-}
-
-header {
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100%;
-margin-bottom: 20px;
-background-color: var(--dark);
-}
-
-.home-intro {
-    line-height: 1.6;
-    font-size: 1.1rem;
-    color: var(--light);
-
-}
-
-.home-intro p {
-margin-bottom: 15px;
-font-family: 'Vidaloka';
-font-size: 25px;
-}
-
-.section-intro {
-    margin-bottom: 30px;
-    line-height: 1.6;
-    font-size: 1.1rem;
-    color: #172554;
-}
-.section-intro h2 {
-    font-family: 'Rock Salt';
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color:#172554;
-}
-
-.section-intro p {
-    font-family: 'Vidaloka';
-    font-size: 1.5rem;
-}
-
 
 .container {
     display: flex;
     min-height: 100vh;
 }
 
+.sidebar {
+    width: 250px;
+    background-color: var(--gi-blue);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
 .sidebar h2 {
-    color: var(--accent);
+    color: var(--gi-indigo);
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
     margin-bottom: 30px;
 }
 
@@ -155,14 +107,20 @@ font-size: 25px;
 }
 
 .sidebar nav ul li a {
-    color: white;
-    font-family:'Bitcount Single';
+    color: var(--gi-indigo);
+    font-family: 'Segoe UI', sans-serif;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.1rem;
+    font-weight: 500;
     padding: 10px;
     display: block;
     border-radius: 5px;
     transition: background 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    background-color: var(--gi-orange);
+    color: var(--gi-indigo);
 }
 
 .content {
@@ -170,10 +128,44 @@ font-size: 25px;
     padding: 0;
 }
 
-.site-header{
-    background-color: var(--dark);
-    padding: 25px 40px;
-    box-shadow: 0 4px 10px rgb(0, 0, 0, 0.2 );
+#main-view {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--gi-blue);
+    margin: 40px;
+}
+
+.home-intro {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: var(--gi-light);
+}
+
+.home-intro p {
+    margin-bottom: 15px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1rem;
+}
+
+.section-intro {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: var(--gi-light);
+}
+
+.section-intro h2 {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: var(--gi-orange);
+}
+
+.section-intro p {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1rem;
 }
 
 .products-container {
@@ -184,52 +176,53 @@ font-size: 25px;
 }
 
 .team-card {
-    background-color: var(--gi-indigo);
-    border: 2px solid var(--gi-blue);
+    background-color: #FFFFFF;
+    border: 1px solid var(--gi-blue);
     border-radius: 12px;
     width: 280px;
     padding: 15px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease;
 }
 
 .team-card:hover {
-    transform: translateY(-5px); /* efecto sutil de "levantar" la tarjeta */
+    transform: translateY(-5px);
 }
 
 .team-photo {
     width: 100%;
     height: 160px;
-    object-fit: cover; /* evita que la foto se deforme */
+    object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
 .team-info h3 {
     color: var(--gi-orange);
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
     margin: 0 0 5px 0;
-    font-family: 'Bitcount Single';
 }
 
 .product-name {
-    color: var(--primary);
+    color: var(--gi-blue);
     font-weight: bold;
     margin: 0 0 8px 0;
 }
 
 .team-description {
-    color: var(--light);
+    color: var(--gi-light);
     font-size: 0.95rem;
     line-height: 1.4;
-    flex-grow: 1; /* empuja el botón hacia abajo aunque el texto sea corto */
+    flex-grow: 1;
 }
 
 .comment-btn {
     margin-top: 12px;
-    background-color: var(--gi-orange);
-    color: var(--light);
+    background-color: var(--gi-blue);
+    color: #FFFFFF;
     border: none;
     padding: 10px;
     border-radius: 6px;
@@ -239,7 +232,7 @@ font-size: 25px;
 }
 
 .comment-btn:hover {
-    background-color: var(--gi-orange-deep);
+    background-color: var(--gi-orange);
 }
 
 .admin-container {
@@ -249,8 +242,8 @@ font-size: 25px;
 }
 
 .comment-card {
-    background-color: var(--gi-indigo, #fff);
-    border: 1px solid var(--gi-blue, #ccc);
+    background-color: #FFFFFF;
+    border: 1px solid var(--gi-blue);
     border-radius: 10px;
     padding: 16px;
     margin-bottom: 16px;
@@ -258,21 +251,23 @@ font-size: 25px;
 
 .comment-meta {
     font-weight: bold;
+    color: var(--gi-light);
     margin-bottom: 8px;
 }
 
 .comment-body {
     font-style: italic;
+    color: var(--gi-light);
     margin-bottom: 12px;
 }
 
 .approve-btn {
-    background-color: #2ecc71;
+    background-color: var(--gi-blue);
     color: white;
 }
 
 .reject-btn {
-    background-color: #e74c3c;
+    background-color: var(--gi-orange);
     color: white;
     margin-left: 8px;
 }
