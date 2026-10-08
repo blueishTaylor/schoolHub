@@ -16,6 +16,7 @@ const expandedCloseBtn = document.getElementById("expanded-close-btn");
 const expandedTitle = document.getElementById("expanded-title");
 const expandedMedia = document.getElementById("expanded-media");
 const expandedCommentBtn = document.getElementById("expanded-comment-btn");
+const expandedCommentArea = document.getElementById("expanded-comment-area");
 let currentTeamForComment = null;
 let  currentStudent = null;
 let pendingTeam = null;
@@ -194,6 +195,52 @@ commentForm.addEventListener("submit", async(event)=>{
 expandedCloseBtn.addEventListener("click", ()=> {
     expandedDialog.close();
 })
+
+async function cargarComentarios(team){
+    expandedCommentArea.innerHTML = "<p>Cargando comentarios...</p>";
+
+    const { data, error } = await supabaseClient
+        .from("comments")
+        .select(`
+            comment_text,
+            created_at,
+            students (first_name, class)
+        `)
+        .eq("product_id", team.id)
+        .eq("approved", true)
+        .order("created_at", { ascending: false });
+
+    if(error){
+        console.log("Error cargando comentarios:", error);
+        expandedCommentArea.innerHTML = "<p>No se pudieron cargar los comentarios.</p>";
+        return;
+    }
+
+    if(data.length === 0){
+        expandedCommentArea.innerHTML = "<p>Aún no hay comentarios. ¡Sé el primero en comentar!</p>";
+        return;
+    }
+
+    expandedCommentArea.innerHTML = "";
+
+    data.forEach((comment)=>{
+        const item = document.createElement("div");
+        item.classList.add("comment-item");
+
+        const meta = document.createElement("p");
+        meta.classList.add("comment-item-meta");
+        meta.textContent = `${comment.students.first_name} - ${comment.students.class}`;
+
+        const body = document.createElement("p");
+        body.classList.add("comment-item-body");
+        body.textContent = comment.comment_text;
+
+        item.appendChild(meta);
+        item.appendChild(body);
+        expandedCommentArea.appendChild(item);
+    });
+}
+
 
 function abrirVistaAmpliada(team){
     expandedTitle.textContent = `${team.team_name} - ${team.product_name}`;
