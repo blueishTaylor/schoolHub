@@ -58,12 +58,18 @@ async function displayPendingComments() {
         const card = document.createElement("div");
         card.classList.add("comment-card");
         card.dataset.id = comment.id;
-        
+            
 
-        card.innerHTML = `
-            <p class="comment-meta">${comment.students.first_name} - ${comment.students.class} comentó en "${comment.Productos.product_name}"</p>
-            <p class="comment-body">"${comment.comment_text}"</p>
-        `;
+        const meta = document.createElement("p");
+        meta.classList.add("comment-meta");
+        meta.textContent = `${comment.students.first_name} - ${comment.students.class} comentó en "${comment.Productos.product_name}"`;
+
+        const body = document.createElement("p");
+        body.classList.add("comment-body");
+        body.textContent = `"${comment.comment_text}"`;
+
+        card.appendChild(meta);
+        card.appendChild(body);
 
         const approveBtn = document.createElement("button");
         approveBtn.classList.add("approve-btn");

@@ -263,6 +263,7 @@ function abrirVistaAmpliada(team){
             accessDialog.showModal();
         }
     };
+    cargarComentarios(team);
     expandedDialog.showModal();
 }
 async function displayTeams(productType){
