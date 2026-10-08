@@ -256,6 +256,7 @@ if(error){
             <h3>${team.team_name}</h3>
             <p class="product-name">${team.product_name}</p>
             <p class="team-description">${team.description}</p>
+            <p class="comment-count">💬 ${commentCounts[team.id] || 0}</p>
         </div>
         `;
 

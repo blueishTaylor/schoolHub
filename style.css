@@ -323,3 +323,10 @@ header h1 {
 #expanded-comment-area {
     margin-top: 16px;
 }
+
+.comment-count {
+    color: var(--gi-blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 8px 0 0 0;
+}
