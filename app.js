@@ -89,7 +89,7 @@ async function showSection(section) {
         view.innerHTML = `
            <div class="home-intro">
                 <p>Welcome to the official digital space of our School Project (PBL). Here, you can explore the amazing work created by our 7th and 8th-grade students in their English class.</p>
-                <p>Our <strong>7th graders</strong> have put their voices into action through creative and engaging podcasts, while our <strong>8th graders</strong> take you on a virtual tour with their edited videos sharing their experiences at the airport.</p>
+                <p>Our <strong>7th graders</strong> have put their voices into action through creative and engaging podcasts, while our <strong>8th graders</strong> take you on a virtual tour with their edited videos.</p>
                 <p>Take a look at their products, listen to their stories, and leave your thoughts and comments below! (Remember: all comments must be in English and follow our respectful community guidelines).</p>
             </div>
             `;
@@ -106,6 +106,8 @@ async function showSection(section) {
                 <p class="placeholder-text">Student podcasts will appear here soon.</p>
             </div>
         `;
+        await displayTeams("podcast");
+
     }else if(section === 'videos') {
         title.innerText = 'Tour Guide Videos - 8th grade';
         view.innerHTML = `
@@ -139,7 +141,7 @@ async function showSection(section) {
             </div>
         `;
 
-        await displayTeams();
+        await displayTeams("video");
     } else {
         title.innerText = 'Bienvenidos al Blog';
         view.innerHTML = '<p>Selecciona una sección del menú para visualizar los trabajos.</p>';
@@ -216,15 +218,14 @@ function abrirVistaAmpliada(team){
     };
     expandedDialog.showModal();
 }
-async function displayTeams(){
+async function displayTeams(productType){
     const container = document.querySelector(".products-container");
     if (!container) return;
 
 const {data, error} = await supabaseClient
 .from("Productos")
 .select("*")
-.eq("class", "8°A")
-.eq("product_type", "video");
+.eq("product_type", productType);
 
 if(error){
     console.log("Error cargando productos", error);
@@ -240,7 +241,7 @@ if(error){
         card.dataset.id= team.id;
     
         card.innerHTML= `
-        <img src="https://placehold.co/150" alt="Foto de ${team.team_name}" class="team-photo">
+        <img src="${team.photo_url || 'https://placehold.co/150'}" alt= "Foto de ${team.team_name}" class= "team-photo">
         <div class="team-info">
             <h3>${team.team_name}</h3>
             <p class="product-name">${team.product_name}</p>
