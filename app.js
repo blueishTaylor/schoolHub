@@ -233,7 +233,17 @@ if(error){
 }
 
 
-    container.innerHTML="";
+    const {data: approvedComments} = await supabaseClient
+    .from("comments")
+    .select("product_id")
+    .eq("approved", true);
+
+    const commentCounts = {};
+    (approvedComments || []).forEach((comment)=> {
+        commentCounts[comment.product_id] = (commentCounts[comment.product_id] || 0) +1;
+    });
+
+    container.innerHTML = "";
 
     data.forEach((team)=>{
         const card = document.createElement("div");
