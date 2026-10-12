@@ -21,7 +21,7 @@ let currentTeamForComment = null;
 let  currentStudent = null;
 let pendingTeam = null;
 
-const nameRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(\s[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
+const nameRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?:\s[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
 function normalizar(texto){
     return texto
     .toLowerCase()
@@ -46,7 +46,7 @@ accessForm.addEventListener("submit", async(event)=> {
     accessError.style.display="none";
 
     const{data, error} = await supabaseClient
-    .rpc("verificar estudiante", {
+    .rpc("verificar_estudiante", {
         p_first_name: firstName,
         p_last_name: lastName
     });
