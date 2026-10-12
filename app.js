@@ -3,7 +3,7 @@ const SUPABASE_URL = "https://nyyyjcdcolvnamubjiwc.supabase.co/";
 const SUPABASE_KEY= "sb_publishable_GprnG-cyVpyKmmAfXsnfNw_iXL3BRiD";
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-
+const accessCloseBtn = document.getElementById("access-close-btn");
 const accessForm = document.getElementById("access-form");
 const accessError = document.getElementById("access-error");
 const accessDialog = document.getElementById("access-dialog");
@@ -28,6 +28,14 @@ function normalizar(texto){
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
 }
+
+
+accessCloseBtn.addEventListener("click", () => {
+    accessDialog.close();
+    pendingTeam = null;
+    accessForm.reset();
+    accessError.style.display = "none";
+});
 
 
 accessForm.addEventListener("submit", async(event)=> {
