@@ -46,8 +46,10 @@ accessForm.addEventListener("submit", async(event)=> {
     accessError.style.display="none";
 
     const{data, error} = await supabaseClient
-    .from("students")
-    .select("*");
+    .rpc("verificar estudiante", {
+        p_first_name: firstName,
+        p_last_name: lastName
+    });
 
 
     if(error){
@@ -56,10 +58,8 @@ accessForm.addEventListener("submit", async(event)=> {
         return;
     }
 
-    const estudianteEncontrado = data.find((estudiante)=> 
-    normalizar(estudiante.first_name) === normalizar(firstName) && 
-    normalizar(estudiante.last_name) === normalizar(lastName)
- );
+    const estudianteEncontrado = data[0];
+ 
     if(!estudianteEncontrado){
         accessError.textContent = "No encontramos esos datos.Revisa tu nombre, apellido y curso.";
         accessError.style.display = "block";
@@ -200,15 +200,7 @@ async function cargarComentarios(team){
     expandedCommentArea.innerHTML = "<p>Cargando comentarios...</p>";
 
     const { data, error } = await supabaseClient
-        .from("comments")
-        .select(`
-            comment_text,
-            created_at,
-            students (first_name, class)
-        `)
-        .eq("product_id", team.id)
-        .eq("approved", true)
-        .order("created_at", { ascending: false });
+    .rpc("comentarios_aprobados", { p_product_id: team.id});
 
     if(error){
         console.log("Error cargando comentarios:", error);
@@ -229,7 +221,7 @@ async function cargarComentarios(team){
 
         const meta = document.createElement("p");
         meta.classList.add("comment-item-meta");
-        meta.textContent = `${comment.students.first_name} - ${comment.students.class}`;
+        meta.textContent = `${comment.first_name} - ${comment.class}`;
 
         const body = document.createElement("p");
         body.classList.add("comment-item-body");
@@ -315,14 +307,3 @@ if(error){
     });
 }
 
-
-async function probarConexion() {
-    const { data, error } = await supabaseClient
-        .from("students")
-        .select("*");
-
-    console.log("Datos:", data);
-    console.log("Error:", error);
-}
-
-probarConexion();
