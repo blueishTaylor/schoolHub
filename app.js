@@ -244,7 +244,12 @@ function abrirVistaAmpliada(team){
     } else if(team.product_type === "video"){
         expandedMedia.innerHTML = `<video src="${team.file_url}" controls></video>`;
     } else if(team.product_type === "podcast"){
-        expandedMedia.innerHTML = `<audio src="${team.file_url}" controls></audio>`;
+        expandedMedia.innerHTML = `
+        <audio 
+            src="${team.file_url}" 
+            controls
+            controlsList="nodownload"
+            ></audio>`;
     }
 
     expandedCommentBtn.onclick = () => {
