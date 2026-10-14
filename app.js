@@ -22,6 +22,8 @@ let  currentStudent = null;
 let pendingTeam = null;
 
 const nameRegex = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?:\s[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/;
+
+
 function normalizar(texto){
     return texto
     .toLowerCase()
@@ -29,6 +31,29 @@ function normalizar(texto){
     .replace(/[\u0300-\u036f]/g, "");
 }
 
+const palabrasProhibidas = [
+    "idiota", "idiotas", "estupido", "estupida", "tonto", "tonta", "imbecil",
+    "mierda", "puta", "weon", "culiao", "wn", "hdp", "aweonao", "qlo", "chupalo", "maraca qla", "mrda", "chapala pachala", "", 
+    "stupid", "idiot", "dumb", "loser", "ugly",
+    "shit", "fuck", "bitch", "shut up"
+];
+
+function contienePalabraProhibida(texto){
+    const limpio = " " + normalizar(texto)
+        .replace(/@/g, "a")
+        .replace(/\$/g, "s")
+        .replace(/0/g, "o")
+        .replace(/1/g, "i")
+        .replace(/3/g, "e")
+        .replace(/4/g, "a")
+        .replace(/5/g, "s")
+        .replace(/[^a-z\s]/g, " ")
+        .replace(/\s+/g, " ") + " ";
+
+    return palabrasProhibidas.some((palabra) =>
+        limpio.includes(" " + normalizar(palabra) + " ")
+    );
+}
 
 accessCloseBtn.addEventListener("click", () => {
     accessDialog.close();
@@ -180,6 +205,8 @@ commentForm.addEventListener("submit", async(event)=>{
         return;
     }
 
+    const lenguajeInapropiado = contienePalabraProhibida(commentText);
+
     const{ error } = await supabaseClient
     .from("comments")
     .insert({
@@ -197,7 +224,12 @@ commentForm.addEventListener("submit", async(event)=>{
     }
 
     commentDialog.close();
+    if(lenguajeInapropiado){
+        alert("⚠️ Tu comentario contiene palabras que no corresponden a este espacio. Tu profesora lo revisará y no se publicará si es irrespetuoso. Recuerda comentar con respeto.")
+    } else{
     alert("¡Gracias! Tu comentario quedará visible una vez que sea revisado.")
+    }
+    
 })
 
 expandedCloseBtn.addEventListener("click", ()=> {
@@ -282,6 +314,10 @@ const {data, error} = await supabaseClient
 
 if(error){
     console.log("Error cargando productos", error);
+    return;
+}
+
+if(data.length === 0){
     return;
 }
 
