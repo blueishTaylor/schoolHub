@@ -33,7 +33,7 @@ function normalizar(texto){
 
 const palabrasProhibidas = [
     "idiota", "idiotas", "estupido", "estupida", "tonto", "tonta", "imbecil",
-    "mierda", "puta", "weon", "culiao", "wn", "hdp", "aweonao", "qlo", "chupalo", "maraca qla", "mrda", "chapala pachala", "", 
+    "mierda", "puta", "weon", "culiao", "wn", "hdp", "aweonao", "qlo", "chupalo", "maraca qla", "mrda", "chapala pachala", 
     "stupid", "idiot", "dumb", "loser", "ugly",
     "shit", "fuck", "bitch", "shut up"
 ];
