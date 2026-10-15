@@ -17,6 +17,13 @@ const expandedTitle = document.getElementById("expanded-title");
 const expandedMedia = document.getElementById("expanded-media");
 const expandedCommentBtn = document.getElementById("expanded-comment-btn");
 const expandedCommentArea = document.getElementById("expanded-comment-area");
+const messageDialog = document.getElementById("message-dialog");
+const messageIcon = document.getElementById("message-icon");
+const messageTitle = document.getElementById("message-title");
+const messageText = document.getElementById("message-text");
+const messageOkBtn = document.getElementById("message-ok-btn");
+
+
 let currentTeamForComment = null;
 let  currentStudent = null;
 let pendingTeam = null;
@@ -144,6 +151,18 @@ async function showSection(section) {
         await displayTeams("video");
     }
 }
+
+function mostrarMensaje(icono, titulo, texto){
+    messageIcon.textContent = icono;
+    messageTitle.textContent = titulo;
+    messageText.textContent = texto;
+    messageDialog.showModal();
+}
+
+messageOkBtn.addEventListener("click", ()=> {
+    messageDialog.close();
+});
+
 function abrirFormularioComentario(team){
     currentTeamForComment = team;
     document.getElementById("comment-product-title").textContent= team.product_name;
@@ -187,12 +206,13 @@ commentForm.addEventListener("submit", async(event)=>{
     }
 
     commentDialog.close();
+       commentDialog.close();
+
     if(lenguajeInapropiado){
-        alert("⚠️ Tu comentario contiene palabras que no corresponden a este espacio. Tu profesora lo revisará y no se publicará si es irrespetuoso. Recuerda comentar con respeto.")
-    } else{
-    alert("¡Gracias! Tu comentario quedará visible una vez que sea revisado.")
+        mostrarMensaje("⚠️", "Revisa tu comentario", "Tu comentario contiene palabras que no corresponden a este espacio. Tu profesora lo revisará y no se publicará si es irrespetuoso. Recuerda comentar con respeto.");
+    } else {
+        mostrarMensaje("✅", "¡Gracias!", "Tu comentario quedará visible una vez que sea revisado.");
     }
-    
 })
 
 expandedCloseBtn.addEventListener("click", ()=> {

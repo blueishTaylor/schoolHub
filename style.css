@@ -355,7 +355,7 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
-#comment-dialog::backdrop, #access-dialog::backdrop {
+#comment-dialog::backdrop, #access-dialog::backdrop, #message-dialog::backdrop {
     background: linear-gradient(135deg, rgba(140, 74, 47, 0.6), rgba(74, 107, 92, 0.6));
 }
 
@@ -471,4 +471,39 @@ h1, h2, h3 {
 
 .form-body input:focus {
     outline: 2px solid var(--gi-blue);
+}
+
+#message-dialog {
+    width: 90vw;
+    max-width: 420px;
+    padding: 32px 28px;
+    border: none;
+    border-radius: 28px;
+    background-color: #FFFFFF;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.message-icon {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+#message-title {
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--gi-orange);
+}
+
+#message-text {
+    margin: 0 0 22px 0;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--gi-light);
+}
+
+#message-ok-btn {
+    min-width: 140px;
 }
