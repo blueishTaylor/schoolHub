@@ -343,3 +343,117 @@ h1, h2, h3 {
         font-size: 2rem;
     }
 }
+
+#comment-dialog {
+    width: 90vw;
+    max-width: 760px;
+    padding: 0;
+    border: none;
+    border-radius: 28px;
+    background-color: #FFFFFF;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+#comment-dialog::backdrop {
+    background: linear-gradient(135deg, rgba(140, 74, 47, 0.6), rgba(74, 107, 92, 0.6));
+}
+
+.form-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+}
+
+.form-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    background-color: var(--gi-indigo);
+}
+
+.form-art img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+}
+
+.form-back-btn {
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--gi-light);
+}
+
+.form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 36px 32px;
+}
+
+.form-body h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gi-orange);
+}
+
+.form-body p {
+    margin: 0;
+}
+
+#comment-as {
+    font-size: 0.9rem;
+    color: var(--gi-blue);
+}
+
+#comment-text {
+    min-height: 120px;
+    padding: 14px 16px;
+    border: none;
+    border-radius: 18px;
+    background-color: #EFEDE8;
+    font-family: inherit;
+    font-size: 0.95rem;
+    resize: none;
+    box-sizing: border-box;
+}
+
+#comment-text:focus {
+    outline: 2px solid var(--gi-blue);
+}
+
+.form-submit {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--gi-orange);
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    transition: background 0.2s;
+}
+
+.form-submit:hover {
+    background-color: var(--gi-orange-deep);
+}
+
+@media (max-width: 600px) {
+    .form-card {
+        grid-template-columns: 1fr;
+    }
+
+    .form-art {
+        display: none;
+    }
+}

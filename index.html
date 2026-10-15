@@ -14,7 +14,7 @@
 
     <section class="hero">
         <h1>Welcome to the Kim Ruka School English Hub</h1>
-        <p>Explore the work of our 7th and 8th-grade students: podcasts about a healthy lifestyle and tour guide videos about Chile, all created in English class. Listen, watch and share your thoughts!</p>
+        <p>Explore the work of our 7th and 8th-grade students: <br> podcasts about a healthy lifestyle <br>and tour guide videos about Chile, <br>all created in English class. <br>Listen, watch and share your thoughts!</p>
         <p class="hero-note">Remember: all comments must be in English and follow our respectful community guidelines.</p>
     </section>
 
@@ -68,20 +68,24 @@
     </dialog>
 
     <dialog id="comment-dialog">
-        <form id="comment-form">
-            <h2 id="comment-product-title"></h2>
-            <p id="comment-as"></p>
+        <div class="form-card">
+            <button type="button" id="comment-cancel-btn" class="form-back-btn" aria-label="Cancelar">←</button>
 
-            <label>
-                Your comment here
-                <textarea id="comment-text" required maxlength="300"></textarea>
-            </label>
+            <div class="form-art">
+                <img src="images/comment-illustration.svg" alt="">
+            </div>
 
-            <p id="comment-error" style="color: red; display: none;"></p>
+            <form id="comment-form" class="form-body">
+                <h2 id="comment-product-title"></h2>
+                <p id="comment-as"></p>
 
-            <button type="submit">Send Comment</button>
-            <button type="button" id="comment-cancel-btn">Cancelar</button>
-        </form>
+                <textarea id="comment-text" placeholder="Write your comment here..." aria-label="Your comment" required maxlength="300"></textarea>
+
+                <p id="comment-error" style="color: red; display: none;"></p>
+
+                <button type="submit" class="form-submit">Send Comment →</button>
+            </form>
+        </div>
     </dialog>
 
     <dialog id="expanded-dialog">

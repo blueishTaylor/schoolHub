@@ -121,7 +121,7 @@ async function showSection(section) {
             <div class="section-intro">
                 <h2>Healthy Lifestyle Podcasts 🎙️</h2>
                 <p>Welcome to the 7th-grade podcast section! <br> Here, student teams share their voices, knowledge, and personal experiences regarding a <strong>healthy lifestyle</strong>.</p>
-                <p>Listen to how they discuss wellness, daily habits, and healthy choices—all entirely in English! Stay tuned to check out their audio projects and leave your constructive comments below.</p>
+                <p>Listen to how they discuss wellness, daily habits, and healthy choices—all entirely in English! <br>Stay tuned to check out their audio projects and leave your constructive comments below.</p>
             </div>
             <div class="products-container">
                 <p class="placeholder-text">Student podcasts will appear here soon.</p>
