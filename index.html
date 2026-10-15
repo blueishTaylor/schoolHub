@@ -3,92 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School English Hub</title>
+    <title>Kim Ruka School - English Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <h2>ABP Blog</h2>
-            <nav>
-                <ul>
-                    <li><a href="#" onclick="showSection('home')">Home</a></li>
-                    <li><a href="#" onclick="showSection('podcasts')">7tos - Podcasts</a></li>
-                    <li><a href="#" onclick="showSection('videos')">8vos - Videos</a></li>
-                </ul>
-            </nav>
-        </aside>
-        
-        <main class="content">
+    <header class="topbar">
+        <img src="images/LogoColegio.png" alt="Logo Kim Ruka School" class="topbar-logo">
+        <span class="topbar-name">Kim Ruka School</span>
+    </header>
 
-            <header class="site-header">
-                <h1 id="section-title">Welcome to the School Hub</h1>
-            </header>
-            <section id="main-view">
-                <p>Selecciona una sección del menú para visualizar los trabajos.</p>
-                <!-- Aquí se cargarán dinámicamente los trabajos -->
-            </section>
-        </main>
-        <dialog id="access-dialog">
-            <button
-                    type="button"
-                    id="access-close-btn"
-                    class="dialog-close-btn"
-                    aria-label="Cerrar formulario"
-                    >
-                    &times;
-                    </button>
-            <form id="access-form">
-                <h2>👋 Welcome!</h2>
-                <p>Para comentar, ingresa tus datos:</p>
-                
-                <label>
-                    Name
-                    <input type="text" id="access-first-name" required>
-                </label>
+    <section class="hero">
+        <h1>Welcome to the Kim Ruka School English Hub</h1>
+        <p>Explore the work of our 7th and 8th-grade students: podcasts about a healthy lifestyle and tour guide videos about Chile, all created in English class. Listen, watch and share your thoughts!</p>
+        <p class="hero-note">Remember: all comments must be in English and follow our respectful community guidelines.</p>
+    </section>
 
-                <label>
-                    Last Name
-                    <input type="text" id="access-last-name" required>
-                </label>
+    <nav class="tabs">
+        <button type="button" class="tab-btn" data-section="podcasts" onclick="showSection('podcasts')">
+            <img src="images/icon_podcast.png" alt="" class="tab-icon">
+            <span>7th Grade Podcasts</span>
+        </button>
+        <button type="button" class="tab-btn" data-section="videos" onclick="showSection('videos')">
+            <img src="images/icon_videos.png" alt="" class="tab-icon">
+            <span>8th Grade Videos</span>
+        </button>
+    </nav>
 
-                <label>
-                    Class
-                    <input type="text" id="access-class" placeholder="Ex: 5°A" required>
-                </label>
+    <main>
+        <section id="main-view"></section>
+    </main>
 
-                <p id="access-error" style="color: red; display: none;"></p>
+    <dialog id="access-dialog">
+        <button
+            type="button"
+            id="access-close-btn"
+            class="dialog-close-btn"
+            aria-label="Cerrar formulario"
+        >
+            &times;
+        </button>
+        <form id="access-form">
+            <h2>👋 Welcome!</h2>
+            <p>Para comentar, ingresa tus datos:</p>
 
-                <button type="submit">Enter</button>
-            </form>
+            <label>
+                Name
+                <input type="text" id="access-first-name" required>
+            </label>
 
-        </dialog>
-        <dialog id="comment-dialog">
-            <form id="comment-form">
-                <h2 id="comment-product-title"></h2>
-                <p id="comment-as"></p>
+            <label>
+                Last Name
+                <input type="text" id="access-last-name" required>
+            </label>
 
-                <label>
-                    Your comment here
-                    <textarea id="comment-text" required maxlength="300"></textarea>
-                </label>
+            <label>
+                Class
+                <input type="text" id="access-class" placeholder="Ex: 5°A" required>
+            </label>
 
-                <p id="comment-error" style="color: red; display: none;"></p>
+            <p id="access-error" style="color: red; display: none;"></p>
 
-                <button type="submit">Send Comment</button>
-                <button type="button" id="comment-cancel-btn">Cancelar</button>
-            </form>
-        </dialog>
+            <button type="submit">Enter</button>
+        </form>
+    </dialog>
 
-        <dialog id="expanded-dialog">
-            <button type="button" id="expanded-close-btn">x</button>
-            <h2 id="expanded-title"></h2>
-            <div id="expanded-media"></div>
-            <button type="button" id="expanded-comment-btn">💬 Comment</button>
-            <div id="expanded-comment-area"></div>
-        </dialog>
-        
-    </div>
+    <dialog id="comment-dialog">
+        <form id="comment-form">
+            <h2 id="comment-product-title"></h2>
+            <p id="comment-as"></p>
+
+            <label>
+                Your comment here
+                <textarea id="comment-text" required maxlength="300"></textarea>
+            </label>
+
+            <p id="comment-error" style="color: red; display: none;"></p>
+
+            <button type="submit">Send Comment</button>
+            <button type="button" id="comment-cancel-btn">Cancelar</button>
+        </form>
+    </dialog>
+
+    <dialog id="expanded-dialog">
+        <button type="button" id="expanded-close-btn">x</button>
+        <h2 id="expanded-title"></h2>
+        <div id="expanded-media"></div>
+        <button type="button" id="expanded-comment-btn">💬 Comment</button>
+        <div id="expanded-comment-area"></div>
+    </dialog>
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="app.js"></script>
 </body>

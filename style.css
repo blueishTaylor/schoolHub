@@ -1,48 +1,3 @@
-@font-face {
-    font-family: 'Rock Salt';
-    src: url(fonts/RockSalt-Regular.woff) format('woff'),
-        url(fonts/RockSalt-Regular.woff2) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Vidaloka';
-    src: url(fonts/Vidaloka-Regular.woff2) format('woff2'),
-        url(fonts/Vidaloka-Regular.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Reenie Beanie';
-    src: url(fonts/ReenieBeanie.woff2) format('woff2'),
-        url(fonts/ReenieBeanie.woff) format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Fascinate';
-    src: url(fonts/Fascinate-Regular.woff2) format('woff2'),
-        url(fonts/Fascinate-Regular.woff) format('woff');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Bitcount Single';
-    src: url(fonts/BitcountSingle-Regular.woff2) format('woff2'),
-        url(fonts/BitcountSingle-Regular.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 :root {
     --gi-orange: #8C4A2F;
     --gi-orange-deep: #6F3A23;
@@ -53,118 +8,148 @@
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--gi-indigo);
     color: var(--gi-light);
 }
 
-header.site-header {
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+.topbar {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    background-color: var(--gi-indigo);
-    padding: 25px 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    border-bottom: 1px solid var(--gi-blue);
+    gap: 14px;
+    padding: 12px 8%;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E4DFD5;
 }
 
-header h1 {
-    font-family: 'Segoe UI', sans-serif;
-    font-weight: 500;
+.topbar-logo {
+    height: 48px;
+    width: auto;
+}
+
+.topbar-name {
+    font-size: 1.3rem;
+    font-weight: 800;
     color: var(--gi-orange);
-    font-size: 2.2rem;
-    letter-spacing: -0.3px;
 }
 
-.container {
-    display: flex;
-    min-height: 100vh;
-}
-
-.sidebar {
-    width: 250px;
-    background-color: var(--gi-blue);
-    padding: 20px;
+.hero {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    min-height: 420px;
+    padding: 60px 8% 100px 8%;
+    background-image: linear-gradient(rgba(20, 20, 20, 0.55), rgba(20, 20, 20, 0.55)), url("images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF;
 }
 
-.sidebar h2 {
-    color: var(--gi-indigo);
-    font-family: 'Segoe UI', sans-serif;
-    font-weight: 500;
-    margin-bottom: 30px;
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    max-width: 640px;
+    margin: 0 0 16px 0;
 }
 
-.sidebar nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar nav ul li {
-    margin: 15px 0;
-}
-
-.sidebar nav ul li a {
-    color: var(--gi-indigo);
-    font-family: 'Segoe UI', sans-serif;
-    text-decoration: none;
+.hero p {
     font-size: 1.1rem;
-    font-weight: 500;
-    padding: 10px;
-    display: block;
-    border-radius: 5px;
-    transition: background 0.3s;
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0;
 }
 
-.sidebar nav ul li a:hover {
-    background-color: var(--gi-orange);
-    color: var(--gi-indigo);
+.hero .hero-note {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-top: 12px;
 }
 
-.content {
+.tabs {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    max-width: 640px;
+    width: calc(100% - 40px);
+    margin: -36px auto 0 auto;
+    padding: 8px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.tab-btn {
     flex: 1;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--gi-light);
+    font-family: inherit;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.tab-btn:hover {
+    background-color: var(--gi-indigo);
+}
+
+.tab-btn.active {
+    background-color: var(--gi-blue);
+    color: #FFFFFF;
+}
+
+.tab-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* Quita la siguiente regla si tus íconos son de colores */
+.tab-btn.active .tab-icon {
+    filter: brightness(0) invert(1);
 }
 
 #main-view {
+    max-width: 1200px;
+    width: calc(100% - 40px);
+    margin: 32px auto 48px auto;
+    padding: 24px;
     background-color: #FFFFFF;
-    padding: 20px;
-    border-radius: 10px;
     border: 1px solid var(--gi-blue);
-    margin: 40px;
+    border-radius: 12px;
+    box-sizing: border-box;
 }
 
-.home-intro {
-    line-height: 1.6;
-    font-size: 1.1rem;
-    color: var(--gi-light);
-}
-
-.home-intro p {
-    margin-bottom: 15px;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 1rem;
+#main-view:empty {
+    display: none;
 }
 
 .section-intro {
     margin-bottom: 30px;
     line-height: 1.6;
-    font-size: 1.1rem;
     color: var(--gi-light);
 }
 
 .section-intro h2 {
-    font-family: 'Segoe UI', sans-serif;
-    font-weight: 500;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    font-weight: 700;
     margin-bottom: 15px;
     color: var(--gi-orange);
 }
 
 .section-intro p {
-    font-family: 'Segoe UI', sans-serif;
     font-size: 1rem;
 }
 
@@ -179,12 +164,12 @@ header h1 {
     background-color: #FFFFFF;
     border: 1px solid var(--gi-blue);
     border-radius: 12px;
-    width: auto;
     padding: 15px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease;
+    cursor: pointer;
 }
 
 .team-card:hover {
@@ -201,8 +186,8 @@ header h1 {
 
 .team-info h3 {
     color: var(--gi-orange);
-    font-family: 'Segoe UI', sans-serif;
-    font-weight: 500;
+    font-size: 1.15rem;
+    font-weight: 700;
     margin: 0 0 5px 0;
 }
 
@@ -219,57 +204,11 @@ header h1 {
     flex-grow: 1;
 }
 
-.comment-btn {
-    margin-top: 12px;
-    background-color: var(--gi-blue);
-    color: #FFFFFF;
-    border: none;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
+.comment-count {
+    color: var(--gi-blue);
     font-size: 0.9rem;
-    transition: background 0.2s;
-}
-
-.comment-btn:hover {
-    background-color: var(--gi-orange);
-}
-
-.admin-container {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 20px;
-}
-
-.comment-card {
-    background-color: #FFFFFF;
-    border: 1px solid var(--gi-blue);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 16px;
-}
-
-.comment-meta {
-    font-weight: bold;
-    color: var(--gi-light);
-    margin-bottom: 8px;
-}
-
-.comment-body {
-    font-style: italic;
-    color: var(--gi-light);
-    margin-bottom: 12px;
-}
-
-.approve-btn {
-    background-color: var(--gi-blue);
-    color: white;
-}
-
-.reject-btn {
-    background-color: var(--gi-orange);
-    color: white;
-    margin-left: 8px;
+    font-weight: 500;
+    margin: 8px 0 0 0;
 }
 
 #expanded-dialog {
@@ -297,8 +236,7 @@ header h1 {
 }
 
 #expanded-title {
-    font-family: 'Segoe UI', sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     color: var(--gi-orange);
     padding-right: 40px;
 }
@@ -343,18 +281,65 @@ header h1 {
 }
 
 .comment-item-meta {
-    font-weight: 500;
+    font-weight: 600;
     color: var(--gi-orange);
     margin: 0 0 4px 0;
 }
 
-.comment-item-body{
+.comment-item-body {
     color: var(--gi-light);
     margin: 0;
 }
-.comment-count {
-    color: var(--gi-blue);
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin: 8px 0 0 0;
+
+.admin-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.comment-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--gi-blue);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.comment-meta {
+    font-weight: bold;
+    color: var(--gi-light);
+    margin-bottom: 8px;
+}
+
+.comment-body {
+    font-style: italic;
+    color: var(--gi-light);
+    margin-bottom: 12px;
+}
+
+.approve-btn {
+    background-color: var(--gi-blue);
+    color: white;
+}
+
+.reject-btn {
+    background-color: var(--gi-orange);
+    color: white;
+    margin-left: 8px;
+}
+
+@media (max-width: 1000px) {
+    .products-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .products-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
 }
