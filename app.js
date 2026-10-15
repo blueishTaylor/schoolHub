@@ -211,7 +211,7 @@ commentForm.addEventListener("submit", async(event)=>{
     if(lenguajeInapropiado){
         mostrarMensaje("⚠️", "Revisa tu comentario", "Tu comentario contiene palabras que no corresponden a este espacio. Tu profesora lo revisará y no se publicará si es irrespetuoso. Recuerda comentar con respeto.");
     } else {
-        mostrarMensaje("✅", "¡Gracias!", "Tu comentario quedará visible una vez que sea revisado.");
+        mostrarMensaje("✅", "Fantastic! Thank you!", "Tu comentario quedará visible una vez que sea revisado.");
     }
 })
 
