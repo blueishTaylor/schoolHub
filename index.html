@@ -33,38 +33,27 @@
         <section id="main-view"></section>
     </main>
 
-    <dialog id="access-dialog">
-        <button
-            type="button"
-            id="access-close-btn"
-            class="dialog-close-btn"
-            aria-label="Cerrar formulario"
-        >
-            &times;
-        </button>
-        <form id="access-form">
-            <h2>👋 Welcome!</h2>
-            <p>Para comentar, ingresa tus datos:</p>
+       <dialog id="access-dialog">
+        <div class="form-card">
+            <button type="button" id="access-close-btn" class="form-back-btn" aria-label="Cerrar formulario">←</button>
 
-            <label>
-                Name
-                <input type="text" id="access-first-name" required>
-            </label>
+            <div class="form-art">
+                <img src="images/comment-illustration.svg" alt="">
+            </div>
 
-            <label>
-                Last Name
-                <input type="text" id="access-last-name" required>
-            </label>
+            <form id="access-form" class="form-body">
+                <h2>👋 Welcome!</h2>
+                <p>Para comentar, ingresa tus datos:</p>
 
-            <label>
-                Class
-                <input type="text" id="access-class" placeholder="Ex: 5°A" required>
-            </label>
+                <input type="text" id="access-first-name" placeholder="Name" aria-label="Name" required>
+                <input type="text" id="access-last-name" placeholder="Last Name" aria-label="Last Name" required>
+                <input type="text" id="access-class" placeholder="Class (Ex: 7B)" aria-label="Class" required>
 
-            <p id="access-error" style="color: red; display: none;"></p>
+                <p id="access-error" style="color: red; display: none;"></p>
 
-            <button type="submit">Enter</button>
-        </form>
+                <button type="submit" class="form-submit">Enter →</button>
+            </form>
+        </div>
     </dialog>
 
     <dialog id="comment-dialog">

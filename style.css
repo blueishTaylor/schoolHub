@@ -116,7 +116,7 @@ h1, h2, h3 {
     object-fit: contain;
 }
 
-/* Quita la siguiente regla si tus íconos son de colores */
+
 .tab-btn.active .tab-icon {
     filter: brightness(0) invert(1);
 }
@@ -344,7 +344,7 @@ h1, h2, h3 {
     }
 }
 
-#comment-dialog {
+#comment-dialog, #access-dialog {
     width: 90vw;
     max-width: 760px;
     padding: 0;
@@ -355,7 +355,7 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
-#comment-dialog::backdrop {
+#comment-dialog::backdrop, #access-dialog::backdrop {
     background: linear-gradient(135deg, rgba(140, 74, 47, 0.6), rgba(74, 107, 92, 0.6));
 }
 
@@ -456,4 +456,19 @@ h1, h2, h3 {
     .form-art {
         display: none;
     }
+}
+
+.form-body input {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 999px;
+    background-color: #EFEDE8;
+    font-family: inherit;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.form-body input:focus {
+    outline: 2px solid var(--gi-blue);
 }
